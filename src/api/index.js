@@ -6,3 +6,14 @@ export const getBanner = () => {
         url: '/banner',
     })
 }
+
+// 熱門推薦
+export const getHotRecommends = (limit) => {
+    return request({
+        url: '/personalized',
+        params:{
+            limit
+        }
+    })
+}
+
