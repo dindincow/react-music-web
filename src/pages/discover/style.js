@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
 export const DiscoverWrapper = styled.div`
-    height: 300px;
     position: relative;
     padding-top: 30px;
     
 `
-
 export const TopNav = styled.div`
     z-index: 90;
     height: 35px;

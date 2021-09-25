@@ -1,30 +1,28 @@
 import React, { memo,useEffect } from 'react';
-import {connect} from "react-redux";
-import { getTopBannerAction } from "@/redux/actions/discover_actions";
-
+import { RecommendWrapper,Content,RecommendLeft,RecommendRight} from "./style";
+import TopBanner from "./c-cpns/top-banner";
+import HotRecommend from "./c-cpns/hot-recommend";
+import NewAlbum from "./c-cpns/new-album";
+import RecommendRanking from "./c-cpns/recommend-ranking";
 function Recommend(props) {
-    const { getTopBanner,topBanner } = props;
-    useEffect(() => {  
-        getTopBanner()
-    }, [getTopBanner])
-    
+      
     return (
-        <div>
-            Recommend==..{topBanner.length}
-        </div>
+        <RecommendWrapper>
+            <TopBanner/>
+            <Content className="wrap-v2">
+                <RecommendLeft>
+                    <HotRecommend></HotRecommend>
+                    <NewAlbum/>
+                    <RecommendRanking/>
+                </RecommendLeft>
+                <RecommendRight>
+                    RecommendRight
+                </RecommendRight>
+            </Content>
+        </RecommendWrapper>
     )
 }
 
-const mapStateToProps = (state)=>({
-    topBanner: state.recommend.topBanner
-   
-})
-
-const mapDispatchToProps = (dispatch)=>({
-    getTopBanner(){
-        dispatch(getTopBannerAction())
-    }
-})
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(memo(Recommend))
+export default memo(Recommend)

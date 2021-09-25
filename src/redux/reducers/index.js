@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import { combineReducers } from "redux-immutable";
 import recommendReducer from "./recommend-reducer"
 const reducer = combineReducers({
      recommend:recommendReducer,

@@ -1,18 +1,20 @@
+
+import {Map} from 'immutable';
 import * as actionType from "../actionType";
 
-const defaultState = {
+const defaultState = Map({
     topBanner:[]
-}
+})
 
 
-const recommendReducer = (state=defaultState,action)=>{
+function reducer(state=defaultState,action){
   
     switch(action.type){
         case actionType.CHANGE_TOP_BANNER:  
-            return {...state,topBanner:action.topBanner};
+            return state.set('topBanner',action.topBanner)
         default:
             return state;
     }
 
 }
-export default recommendReducer;
+export default reducer;
