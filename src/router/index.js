@@ -25,7 +25,7 @@ const routes = [
                 path:"/discover",
                 exact:true,
                 render: ()=>(
-                    <Redirect to="/discover/album"></Redirect>
+                    <Redirect to="/discover/recommend"></Redirect>
                 )
                 
             },

@@ -7,6 +7,7 @@ export const HeaderWrapper = styled.div`
     padding: 0 10px 0 34px;
     background-position: -225px -156px;
     border-bottom: 2px solid #C10D0C;
+    margin-bottom: 25px;
     .header-left{
         display: flex;
         align-items: center;

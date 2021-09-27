@@ -29,13 +29,12 @@ function Topbanner(props) {
     }, []);
 
 
-
-
     // 高思模糊背景圖
     let bgImage = topBanner[currentIndex] && (topBanner[currentIndex].imageUrl + "?imageView&blur=40x20");
     
     return (
-        <BannerWrapper bgImage={bgImage}>
+        // <BannerWrapper bgImage={bgImage}>
+            <BannerWrapper  bgImage={bgImage}>
             <div className="banner wrap-2">
                 <BannerLeft>
                     <Carousel effect="fade" autoplay ref={bannerRef} beforeChange={bannerChange}>

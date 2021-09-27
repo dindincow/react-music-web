@@ -1,10 +1,34 @@
-import React, { memo } from 'react'
-import ThemeHeaderRCM from '@/components/theme-header-rcm'
- 
-export default memo(function NewAlbum() {
+import React, { memo,useEffect } from 'react';
+import {useDispatch,useSelector,shallowEqual} from 'react-redux';
+import {RankingWrapper} from './style';
+import { getTopListAction } from '@/redux/actions/discover_actions';
+import ThemeHeaderRCM from '@/components/theme-header-rcm';
+import TopRanking from '@/components/top-ranking';
+
+
+export default memo(function RecommendRanking() {
+    const dispatch = useDispatch();
+
+    const {upRanking,newRanking,originRanking} = useSelector(state=>({
+        upRanking:state.getIn(["recommend","upRanking"]),
+        newRanking:state.getIn(["recommend","newRanking"]),
+        originRanking:state.getIn(["recommend","originRanking"]),
+    }),shallowEqual);
+
+    useEffect(() => {
+        dispatch(getTopListAction(0));
+        dispatch(getTopListAction(2));
+        dispatch(getTopListAction(3));  
+    }, [dispatch])
+
     return (
-        <div>
-            <ThemeHeaderRCM title="新碟上架" />
-        </div>
+        <RankingWrapper>
+            <ThemeHeaderRCM title="榜单" />
+            <div className="tops">
+                <TopRanking info={upRanking}/>
+                <TopRanking info={newRanking}/>
+                <TopRanking info={originRanking}/>
+            </div>
+        </RankingWrapper>
     )
 })
